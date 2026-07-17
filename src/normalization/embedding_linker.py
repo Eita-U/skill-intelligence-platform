@@ -17,8 +17,6 @@ class EmbeddingLinker:
             raise ValueError("Embedding index has not been built.")
 
         skill_embedding = self.embedding_index.embedding_model.encode([text])[0]
-        print("index shape:", self.embedding_index.embeddings.shape)
-        print("query shape:", skill_embedding.shape)
         similarities = self.embedding_index.embeddings @ skill_embedding
 
         indices = similarities.argsort()[::-1]
