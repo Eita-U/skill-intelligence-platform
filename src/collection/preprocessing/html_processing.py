@@ -13,4 +13,4 @@ def process_html_content(html_content: str) -> str:
     """
     decoded = unescape(html_content)
     soup = BeautifulSoup(decoded, "html.parser")
-    return soup.get_text(separator="\n", strip=True)
+    return soup.get_text(separator=" ", strip=True)

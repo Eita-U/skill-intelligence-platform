@@ -14,7 +14,7 @@ from src.collection.preprocessing.html_processing import process_html_content
 class JobPosting:
     provider: str
     source_identifier: str
-    external_id: str
+    id: str
     updated_at: str
     title: str
     company: str
@@ -78,7 +78,7 @@ def collect_jobs(output_path: Path):
                     job_posting = JobPosting(
                                     provider=source.provider,
                                     source_identifier=source.identifier,
-                                    external_id=str(job.get("id", "")),
+                                    id=str(job.get("id", "")),
                                     updated_at=job.get("updated_at", ""),
                                     title=(job.get("title") or "").strip(),
                                     company=(job.get("company") or "").strip(),
